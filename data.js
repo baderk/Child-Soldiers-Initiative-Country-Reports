@@ -90,9 +90,11 @@ $.ajax({
     success: function(data, txtStatus, xhr) {
         console.log(data);
         //console.log( xhr.status );
-        for (i = 0; i < data.length; i++) {
-            document.getElementById('main').append(data[i].slug);
-        }
+        
+            for (i = 0; i < data.length; i++) {
+               $("#id").append(data[i].id);
+               $("#title").append(data[i].title.rendered);
+               $("#date").append(data[i].date);
         //window.alert(data.length);
     }
 });
