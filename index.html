@@ -4,12 +4,12 @@
 	<script type="text/javascript" src="data.js"></script>
 	<script type="text/javascript">
 
-		function get() {
-			$.post('data.js', {name: form.name.value}, 
-				function(output) { //taking the output and passing it to the div main
-					$('#main').html(output).show(); //the output is from the data.php
-				});
-		}
+// 		function get() {
+// 			$.post('data.js', {name: form.name.value}, 
+// 				function(output) { //taking the output and passing it to the div main
+// 					$('#main').html(output).show(); //the output is from the data.php
+// 				});
+// 		}
 
 	</script>
 
@@ -18,15 +18,19 @@
 <body>
 
 <p>
-<form name="form">
+<!-- <form name="form">
 	<input type="text" name="name"><input type="button" value="Get" onClick="get();">
-</form>
+</form> -->
 
 	<div id="main">
-		
-		
+		<span id="id"></span>
+		<br>
+	
+		<span id="title"></span>
+		<br>
+
+		<span id="date"></span>
 	</div>
-</p>
 
 </body>
 </html>
