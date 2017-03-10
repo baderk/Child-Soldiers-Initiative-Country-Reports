@@ -1,0 +1,32 @@
+<html>
+<head>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript">
+
+		function get() {
+			$.post('data.js', {name: form.name.value}, 
+				function(output) { //taking the output and passing it to the div main
+					$('#main').html(output).show(); //the output is from the data.php
+				});
+		}
+
+	</script>
+
+	<title>Child Soldiers Initiative: Country Reports</title>
+</head>
+<body>
+
+<p>
+<form name="form">
+	<input type="text" name="name"><input type="button" value="Get" onClick="get();">
+</form>
+
+	<div id="main">
+		
+		
+	</div>
+</p>
+
+</body>
+</html>
