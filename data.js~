@@ -92,11 +92,9 @@ $.ajax({
         //console.log( xhr.status );
         
             for (i = 0; i < data.length; i++) {
-		var d = new Date(data[i].date);
-                document.getElementById("main").innerHTML += ("<span id='id"+i+"'>ID: </span><br><span id='title"+i+"'>Title: </span><br><span id='date"+i+"'>Date: </span><br><br>");
-		$("#id"+i).append(data[i].id);
-		$("#title"+i).append(data[i].title.rendered + " ");
-		$("#date"+i).append(d);
+               $("#id").append(data[i].id);
+               $("#title").append(data[i].title.rendered);
+               $("#date").append(data[i].date);
         //window.alert(data.length);
              }
     }
