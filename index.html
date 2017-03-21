@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>	
+
+	<!-- Tinymce -->
+	<script src="js/tinymce.min.js"></script>
+
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +25,13 @@
 </head>
 
 <body>
+	
 	<div class="container" id="main">
 		<h2>  Country Reports </h2>
+<!-- The nav bar should be here, the Titles are being shown inside this div tag class "containter" once the page is loaded -->
 		
-			<div id="accordion" role="tablist" aria-multiselectable="true">
+
+			<!-- <div id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="card">
 					<div class="card-header" role="tab" id="headingOne">
 						<h5 class="mb-0">
@@ -43,24 +50,28 @@
 						</div>
 					</div>
 				</div>
-			
+			 -->
 
-				<!-- POST REQUEST  -->
-				<div class="card">
+
+
+				<!-- POST REQUEST  -->		 
+
+				<!-- bootstrap FORM Presentation -->
+				<!-- <div class="card">
 					<div class="card-header" role="tab" id="headingTwo">
 						<h5 class="mb-0">
 							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 								POST Request
 							</a>
 						</h5>
-					</div>
+					</div> -->
 
 					<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
 						<div class="card-block">
-							<h4>Create a new country report</h4>
-  							<input type="text" name="title" placeholder="Title"><br><br>
-							<textarea name="content"  placeholder="Content"></textarea><br><br>
-  							<button class="btn" id="quick-add-button">Create Report</button>
+
+							<!-- this is the text editor area -->
+							<textarea id="tinymcetext"> Add report content here...</textarea>
+
 						</div>
 					</div>
 				</div>
@@ -69,11 +80,10 @@
 
 			</div>
 
-
-
-
-
 	</div>
+
+	<!-- this is the div where the reports will be displayed. It should be on the right side of the webpage. -->
+	<div id="reportContent"> </div>
 
 	<!-- <button class="btn btn-primary" id="hide-form">Create a Report </button>
 	<div style="visibility:hidden;" class="container" id="report-form">

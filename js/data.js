@@ -3,15 +3,19 @@
 var reportsContainer = document.getElementById("report-content");
 var GETbtn = document.getElementById("getbutton");
 
-GETbtn.addEventListener("click", function() {
+
+
+// GETbtn.addEventListener("click", function() {
+    window.onload = function(e){
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/pages');//add ?order=asc to sort by ascending date
+    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/pages/');//add ?order=asc to sort by ascending date
     
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
             var ourData = JSON.parse(ourRequest.responseText);
             displayReports(ourData);
             GETbtn.remove(); //removes button after clicking
+
         }else{
             console.log("We connected to the srver but it returned an error");
         }
@@ -23,52 +27,59 @@ GETbtn.addEventListener("click", function() {
     }
 
     ourRequest.send();
-    // pageCounter++;
-    // if(pageCounter > 3){
-    //     btn.classList.add("hide-me");
 
-    // }
-
-});
+};
 
 function displayReports(data) {
     var htmlString = "";
 
     for (var i = 0; i < data.length; i++) {
+        $(".container").append("<li onclick = populate() id =" + data[i].id + ">" + data[i].title.rendered + "</li>");
        //name is ID for me
-        htmlString += "id: " + data[i].id + ", </br>";
+        // htmlString += "id: " + data[i].id + ", </br>";
 
-        htmlString += "title: " + data[i].title.rendered + ", </br>";
+        // htmlString += "title: " + data[i].title.rendered + ", </br>";
 
-        // htmlString += "Content: " + data[i].content.rendered+ ", </br>";
+        // // htmlString += "Content: " + data[i].content.rendered+ ", </br>";
         
-        htmlString += "date: " + data[i].date + "</br>";
+        // htmlString += "date: " + data[i].date + "</br>";
+
 
         // htmlString += "content: " + data[i].content.rendered + "</br>";
 
-        htmlString += "<br>";
-        
-        // for(ii = 0; ii<data[i].foods.likes.length; ii++){
-        //     if(ii==0){
-        //         htmlString += data[i].foods.likes[ii];
-        //     } else{
-        //         htmlString += " and " + data[i].foods.likes[ii];
-        //     }
-        // }
+        // htmlString += "<br>";
     };
     //add it to the <div>
     reportsContainer.insertAdjacentHTML('beforeend', htmlString);
     // reportsContainer.innerHTML = htmlString; //this jumps into a different page?
 }
 
+function populate(e){
+    var reportId = event.target.id;
+  
+    var ourRequest = new XMLHttpRequest();
+    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/pages/' + reportId);//add ?order=asc to sort by ascending date
+    
+    ourRequest.onload = function() {
+        if(ourRequest.status >= 200 && ourRequest.status < 400){
+            var ourData = JSON.parse(ourRequest.responseText);
+            document.getElementById("reportContent").innerHTML = ourData.content.rendered;
+            GETbtn.remove(); //removes button after clicking
 
+        }else{
+            console.log("We connected to the srver but it returned an error");
+        }
+       
+    };
 
-    //Button to show the hidden form
-    // var showFormButton = document.querySelector('#hide-form');
-    // showFormButton.addEventListener("click", function() {
-    //     document.querySelector('#report-form').style.visibility='visible';
-    // })
+    ourRequest.onerror = function() {
+        console.log("Connection error");
+    }
 
+    ourRequest.send();
+
+};   
+  
 
 
     //Adding Report
@@ -121,8 +132,22 @@ function displayReports(data) {
             }
         }
         })
-            
     }
+
+
+
+    tinymce.init({ selector: 'textarea',
+      height: 500,
+      menubar: false,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table contextmenu paste code'
+      ],
+      toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      content_css: '//www.tinymce.com/css/codepen.min.css'
+    });
+
 
 
 
