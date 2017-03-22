@@ -34,7 +34,7 @@ function displayReports(data) {
     var htmlString = "";
 
     for (var i = 0; i < data.length; i++) {
-        $(".container").append("<li onclick = populate() id =" + data[i].id + ">" + data[i].title.rendered + "</li>");
+        $("#sideNav").append("<li onclick = populate() id =" + data[i].id + ">" + data[i].title.rendered + "</li>");
        //name is ID for me
         // htmlString += "id: " + data[i].id + ", </br>";
 

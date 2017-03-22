@@ -20,6 +20,9 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- Sidebar CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
 
 	<title>Country Reports</title>
 </head>
@@ -27,7 +30,15 @@
 <body>
 	
 	<div class="container" id="main">
-		<h2>  Country Reports </h2>
+		<div id="wrapper" class="toggled">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav"  id="sideNav">
+					<li class="sidebar-brand">
+							<a href="">Country Reports</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 <!-- The nav bar should be here, the Titles are being shown inside this div tag class "containter" once the page is loaded -->
 		
 
@@ -74,24 +85,18 @@
 
 						</div>
 					</div>
-				</div>
-			
-
-
-			</div>
-
-	</div>
 
 	<!-- this is the div where the reports will be displayed. It should be on the right side of the webpage. -->
-	<div id="reportContent"> </div>
+		<div id="reportContent"> </div>
 
-	<!-- <button class="btn btn-primary" id="hide-form">Create a Report </button>
-	<div style="visibility:hidden;" class="container" id="report-form">
-  		<h3>Post a New Country Report</h3>
-  		<input type="text" name="title" placeholder="Title"><br><br>
-		<textarea name="content"  placeholder="Content"></textarea><br><br>
-  		<button class="btn" id="quick-add-button">Create Report</button>
-  	</div> -->
+		<!-- <button class="btn btn-primary" id="hide-form">Create a Report </button>
+		<div style="visibility:hidden;" class="container" id="report-form">
+			<h3>Post a New Country Report</h3>
+			<input type="text" name="title" placeholder="Title"><br><br>
+			<textarea name="content"  placeholder="Content"></textarea><br><br>
+			<button class="btn" id="quick-add-button">Create Report</button>
+		</div> -->
+	</div>
 </body>
 
 
