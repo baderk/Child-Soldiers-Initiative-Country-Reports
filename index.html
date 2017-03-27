@@ -30,65 +30,52 @@
 <body>
 	
 	<div class="container" id="main">
-		<div id="wrapper" class="toggled">
-			<div id="sidebar-wrapper">
-				<ul class="sidebar-nav"  id="sideNav">
-					<li class="sidebar-brand">
-							<a href="">Country Reports</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-<!-- The nav bar should be here, the Titles are being shown inside this div tag class "containter" once the page is loaded -->
-		
-
-			<!-- <div id="accordion" role="tablist" aria-multiselectable="true">
-				<div class="card">
-					<div class="card-header" role="tab" id="headingOne">
-						<h5 class="mb-0">
-							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-								GET Request					
-							</a>
-						</h5>
-					</div>
-
-					<div id="collapseOne" class"collapse show" role='tabpanel' aria-labelledby="headingOne">
-						<div class="card-block">
-							<button id="getbutton"> GET </button>
-
-							<div id="report-content"></div>
-
-						</div>
+		<div class="row">
+			<div class="col-md-4 column">
+				<div id="wrapper" class="toggled">
+					<div id="sidebar-wrapper">
+						<ul class="sidebar-nav"  id="sideNav">
+							<li class="sidebar-brand">
+									<a href="">Country Reports</a>
+							</li>
+						</ul>
 					</div>
 				</div>
-			 -->
-
-
-
-				<!-- POST REQUEST  -->		 
-
+			</div>
+			<div class="col-md-8 column">
+		<!-- The nav bar should be here, the Titles are being shown inside this div tag class "containter" once the page is loaded -->
 				
 
-					<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-						<div class="card-block">
+					
 
-							<!-- this is the text editor area -->
-							<textarea id="tinymcetext"> Add report content here...</textarea>
 
-						</div>
-					</div>
 
-	<!-- this is the div where the reports will be displayed. It should be on the right side of the webpage. -->
-		<div id="reportContent"> </div>
+						<!-- POST REQUEST  -->		 
 
-		<!-- <button class="btn btn-primary" id="hide-form">Create a Report </button>
-		<div style="visibility:hidden;" class="container" id="report-form">
-			<h3>Post a New Country Report</h3>
-			<input type="text" name="title" placeholder="Title"><br><br>
-			<textarea name="content"  placeholder="Content"></textarea><br><br>
-			<button class="btn" id="quick-add-button">Create Report</button>
-		</div> -->
+						
+
+							<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="card-block">
+
+									<!-- this is the text editor area -->
+									<textarea id="tinymcetext"> Add report content here...</textarea>
+
+								</div>
+							</div>
+
+			<!-- this is the div where the reports will be displayed. It should be on the right side of the webpage. -->
+				<div id="reportContent"> </div>
+
+				<!-- <button class="btn btn-primary" id="hide-form">Create a Report </button>
+				<div style="visibility:hidden;" class="container" id="report-form">
+					<h3>Post a New Country Report</h3>
+					<input type="text" name="title" placeholder="Title"><br><br>
+					<textarea name="content"  placeholder="Content"></textarea><br><br>
+					<button class="btn" id="quick-add-button">Create Report</button>
+				</div> -->
+			</div>
 		</div>
+	</div>
 </body>
 
 
