@@ -90,7 +90,7 @@ function populate(e){
             var postData = {
                 "title": document.querySelector('.admin-quick-add [name="title"]').value,
                 "content": document.querySelector('.admin-quick-add [name="content"]').value,
-                "status": "publish"
+                "status": "draft"
             }
 
 
