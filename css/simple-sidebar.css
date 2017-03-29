@@ -10,6 +10,7 @@
  
  #reportContent{
 	 margin-left : 15%;
+	 padding-left : 5%;
  }
 
 /* Toggle Styles */
@@ -36,7 +37,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 15%;
+    width: 30%;
 }
 
 #page-content-wrapper {
