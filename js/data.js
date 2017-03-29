@@ -8,7 +8,7 @@ var GETbtn = document.getElementById("getbutton");
 // GETbtn.addEventListener("click", function() {
     window.onload = function(e){
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/pages/');//add ?order=asc to sort by ascending date
+    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts/');//add ?order=asc to sort by ascending date
     
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
@@ -58,7 +58,7 @@ function populate(e){
     var reportId = event.target.id;
   
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/pages/' + reportId);//add ?order=asc to sort by ascending date
+    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts/' + reportId);//add ?order=asc to sort by ascending date
     
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
