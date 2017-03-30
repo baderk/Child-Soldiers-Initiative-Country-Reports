@@ -24,6 +24,10 @@
 	<!-- Sidebar CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+		<script type="text/javascript" src="js/new_report.js"></script>
+
+	  <link href="css/create_report.css" rel="stylesheet">
+
 	<title>Country Reports</title>
 </head>
 
@@ -43,29 +47,27 @@
 
 					</li>
 					<li>
-						<a href="create_report.html">
+						<div onclick="showEditor()">
 							Create a New Report
-						</a>
+						</div>
 					</li>
 				</ul>
 			</div>
 		</div>
-				<!-- POST REQUEST  -->
-							<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-								<div class="card-block">
-
-									<!-- this is the text editor area -->
-									<textarea id="tinymcetext"> Add report content here...</textarea>
-
-								</div>
-							</div>
 
 			<!-- this is the div where the reports will be displayed. It should be on the right side of the webpage. -->
 				<div id="reportContent"> </div>
 			</div>
 		</div>
-		<h1 class= "pagetitle" align="center">Roméo Dallaire Child Soldiers Initiative</h1>
-		<h2 class="pagetitle" align="center">Country Reports</h2>
+		<!-- POST REQUEST  -->
+		<div id="mainEdit">
+			<t id="tvTitle">Title: </t> <textarea id="title"></textarea>
+			<textarea id="content"></textarea>
+			<button onClick="createPost()" id="button">Submit</button>
+			<div id='result' style='display:none'>Event Created</div>
+		</div>
+		<h1 id="pageTitle1" class= "pagetitle" align="center">Roméo Dallaire Child Soldiers Initiative</h1>
+		<h2 id="pageTitle2" class="pagetitle" align="center">Country Reports</h2>
 	</div>
 </body>
 

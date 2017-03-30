@@ -3,13 +3,14 @@
 var reportsContainer = document.getElementById("report-content");
 var GETbtn = document.getElementById("getbutton");
 
+document.getElementById('mainEdit').style.display = 'none';
 
 
 // GETbtn.addEventListener("click", function() {
     window.onload = function(e){
     var ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts/');//add ?order=asc to sort by ascending date
-    
+
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
             var ourData = JSON.parse(ourRequest.responseText);
@@ -19,7 +20,7 @@ var GETbtn = document.getElementById("getbutton");
         }else{
             console.log("We connected to the srver but it returned an error");
         }
-       
+
     };
 
     ourRequest.onerror = function() {
@@ -41,7 +42,7 @@ function displayReports(data) {
         // htmlString += "title: " + data[i].title.rendered + ", </br>";
 
         // // htmlString += "Content: " + data[i].content.rendered+ ", </br>";
-        
+
         // htmlString += "date: " + data[i].date + "</br>";
 
 
@@ -55,11 +56,16 @@ function displayReports(data) {
 }
 
 function populate(e){
+
+    document.getElementById("pageTitle1").innerHTML = "";
+    document.getElementById("pageTitle2").innerHTML = "";
+    document.getElementById('mainEdit').style.display = 'none';
+
     var reportId = event.target.id;
-  
+
     var ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts/' + reportId);//add ?order=asc to sort by ascending date
-    
+
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
             var ourData = JSON.parse(ourRequest.responseText);
@@ -69,7 +75,7 @@ function populate(e){
         }else{
             console.log("We connected to the srver but it returned an error");
         }
-       
+
     };
 
     ourRequest.onerror = function() {
@@ -78,8 +84,8 @@ function populate(e){
 
     ourRequest.send();
 
-};   
-  
+};
+
 
 
     //Adding Report
@@ -112,7 +118,7 @@ function populate(e){
             });
             // var createReport = new XMLHttpRequest();
             //createReport.open("POST", 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts');
-            // // beforeSend: function(xhr) { 
+            // // beforeSend: function(xhr) {
             // //     xhr.setRequestHeader("Authorization", "Basic " + btoa("7pxS2cteisV4hSzUYlAFoVzfbcst5z:rdYY60azes2axk37e2sOHRKg6Vtypz"))
             // // }
 
@@ -134,25 +140,9 @@ function populate(e){
         })
     }
 
-
-
-    tinymce.init({ selector: 'textarea',
-      height: 500,
-      menubar: false,
-      plugins: [
-        'advlist autolink lists link image charmap print preview anchor',
-        'searchreplace visualblocks code fullscreen',
-        'insertdatetime media table contextmenu paste code'
-      ],
-      toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-      content_css: '//www.tinymce.com/css/codepen.min.css'
-    });
-
-
-
-
-
-
-
-
-
+    function showEditor() {
+      document.getElementById("pageTitle1").innerHTML = "";
+      document.getElementById("pageTitle2").innerHTML = "";
+      document.getElementById("reportContent").innerHTML = "";
+      document.getElementById('mainEdit').style.display = 'block';
+    }
