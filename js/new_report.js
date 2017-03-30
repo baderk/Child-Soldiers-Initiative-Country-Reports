@@ -8,5 +8,31 @@ tinymce.init({
     'insertdatetime media table contextmenu paste code'
   ],
   toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-  content_css: '//www.tinymce.com/css/codepen.min.css'
 });
+
+
+
+function createPost(){
+  var title = $('#title')[0].value;
+  var content =  tinyMCE.get('content').getContent();
+  $.ajax({
+    url: 'http://localhost:8081/publishpost',
+    method: 'POST',
+    data: {
+      title: title,
+      content: content,
+      status: "draft"
+    },
+    crossDomain: true,
+    contentType: 'application/x-www-form-urlencoded',
+    success: function( data ) {
+      $('#result').html(data);
+      $('#result').fadeIn(400).delay(3000).fadeOut(400);
+    },
+    error: function( error ) {
+      $('#result').html('Oops! Could not submit the post');
+      $('#result').fadeIn(400).delay(3000).fadeOut(400);
+      console.log( error );
+    }
+  });
+}

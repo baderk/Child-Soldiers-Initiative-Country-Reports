@@ -21,16 +21,16 @@ app.post('/publishpost', function (req, res) {
 	var title = req.body.title;
 	var status = req.body.status;
   var content = req.body.content; // this is the content in the text editor
-	
+
 	var obj = new Object();
 	obj.title = title;
-	obj.content = "Here is the content"; //this probably should be the var status?
+	obj.content = content; //this probably should be the var status?
 	obj.status = "draft";
 	client.newPost(obj, (function(error, id) {
     console.log(error);
     console.log(id);
 	}))
-  	res.send("completed successfully");
+  	res.send("Submitted!");
    });
 
 
@@ -43,4 +43,3 @@ var server = app.listen(8081, function () {
   console.log("Example app listening at http://%s:%s", host, port);
 
 })
-
