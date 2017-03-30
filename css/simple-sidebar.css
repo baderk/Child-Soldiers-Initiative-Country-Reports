@@ -8,6 +8,18 @@
     overflow-x: visible;
  }
  
+h1.pagetitle {
+  margin-top: 25%; 
+  margin-left: 15%; 
+  color: #527999;
+}
+
+h2.pagetitle {
+  
+  margin-left: 15%; 
+  color: #527999;
+}
+
  #reportContent{
 	 margin-left : 15%;
  }
