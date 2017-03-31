@@ -1,7 +1,6 @@
 // var pageCounter = 1;
 
-var reportsContainer = document.getElementById("report-content");
-var GETbtn = document.getElementById("getbutton");
+//var reportsContainer = document.getElementById("report-content");
 
 document.getElementById('mainEdit').style.display = 'none';
 
@@ -9,16 +8,15 @@ document.getElementById('mainEdit').style.display = 'none';
 // GETbtn.addEventListener("click", function() {
     window.onload = function(e){
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts/');//add ?order=asc to sort by ascending date
+    ourRequest.open('GET', 'http://dev-countryreportapp.pantheonsite.io/wp-json/wp/v2/posts?per_page=100');//add ?order=asc to sort by ascending date
 
     ourRequest.onload = function() {
         if(ourRequest.status >= 200 && ourRequest.status < 400){
             var ourData = JSON.parse(ourRequest.responseText);
             displayReports(ourData);
-            GETbtn.remove(); //removes button after clicking
 
         }else{
-            console.log("We connected to the srver but it returned an error");
+            console.log("We connected to the server but it returned an error");
         }
 
     };
@@ -33,6 +31,8 @@ document.getElementById('mainEdit').style.display = 'none';
 
 function displayReports(data) {
     var htmlString = "";
+
+    console.log(data);
 
     for (var i = 0; i < data.length; i++) {
         $("#sideNav").append("<li onclick = populate() id =" + data[i].id + ">" + data[i].title.rendered + "</li>");
@@ -51,7 +51,7 @@ function displayReports(data) {
         // htmlString += "<br>";
     };
     //add it to the <div>
-    reportsContainer.insertAdjacentHTML('beforeend', htmlString);
+    //reportsContainer.insertAdjacentHTML('beforeend', htmlString);
     // reportsContainer.innerHTML = htmlString; //this jumps into a different page?
 }
 
@@ -70,7 +70,6 @@ function populate(e){
         if(ourRequest.status >= 200 && ourRequest.status < 400){
             var ourData = JSON.parse(ourRequest.responseText);
             document.getElementById("reportContent").innerHTML = ourData.content.rendered;
-            GETbtn.remove(); //removes button after clicking
 
         }else{
             console.log("We connected to the srver but it returned an error");
