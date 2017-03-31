@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 //Read from the Body -- Body parser
 var app = express();
+app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -14,6 +15,10 @@ var client = wordpress.createClient({
     url: "http://dev-countryreportapp.pantheonsite.io/",
     username: "admin",
     password: "RSyzv^i^HvCtiaj5"
+});
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
 
 // Post Function

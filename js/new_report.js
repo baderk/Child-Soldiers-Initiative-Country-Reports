@@ -16,7 +16,7 @@ function createPost(){
   var title = $('#title')[0].value;
   var content =  tinyMCE.get('content').getContent();
   $.ajax({
-    url: 'http://localhost:8081/publishpost',
+    url: '/publishpost',
     method: 'POST',
     data: {
       title: title,
