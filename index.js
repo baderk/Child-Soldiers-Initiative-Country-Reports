@@ -35,7 +35,7 @@ app.post('/publishpost', function (req, res) {
 
 
 // Express Server Configuration. Now it runs on localhost:8081. Change this depending on where it's hosted at
-var server = app.listen("/", function () {
+var server = app.listen(8081, function () {
 
   var host = server.address().address;
   var port = server.address().port;

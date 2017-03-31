@@ -16,7 +16,7 @@ function createPost(){
   var title = $('#title')[0].value;
   var content =  tinyMCE.get('content').getContent();
   $.ajax({
-    url: 'https://child-soldiers-country-report.herokuapp.com/publishpost',
+    url: 'http://localhost:8081/publishpost',
     method: 'POST',
     data: {
       title: title,
@@ -30,7 +30,7 @@ function createPost(){
       $('#result').fadeIn(400).delay(3000).fadeOut(400);
     },
     error: function( error ) {
-      $('#result').html('Oops! Could not submit the post');
+      $('#result').html(error);
       $('#result').fadeIn(400).delay(3000).fadeOut(400);
       console.log( error );
     }
