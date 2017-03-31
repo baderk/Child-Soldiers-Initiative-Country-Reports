@@ -1,5 +1,7 @@
 #mainEdit {
   margin-top: 20px;
+  margin-left : 15%;
+  position: relative;
 }
 #tvTitle {
   color: #527999;
