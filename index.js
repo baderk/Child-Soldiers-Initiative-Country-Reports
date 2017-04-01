@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // Wordpress module- Create client
 var client = wordpress.createClient({
-    url: "https://dev-countryreportapp.pantheonsite.io/",
+    url: "http://dev-countryreportapp.pantheonsite.io/",
     username: "admin",
     password: "RSyzv^i^HvCtiaj5"
 });
@@ -39,8 +39,8 @@ app.post('/publishpost', function (req, res) {
    });
 
 
-// Express Server Configuration. Now it runs on localhost:8081. Change this depending on where it's hosted at
-var server = app.listen(process.env.PORT || 8081, function () {
+  // Express Server Configuration. Now it runs on localhost:8081. Change this depending on where it's hosted at
+  var server = app.listen(process.env.PORT || 8081, function () {
 
   var host = server.address().address;
   var port = server.address().port;
