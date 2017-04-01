@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // Wordpress module- Create client
 var client = wordpress.createClient({
-    url: "http://dev-countryreportapp.pantheonsite.io/",
+    url: "https://dev-countryreportapp.pantheonsite.io/",
     username: "admin",
     password: "RSyzv^i^HvCtiaj5"
 });
